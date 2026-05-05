@@ -271,7 +271,7 @@ export default function App() {
                 <input 
                   type="text" 
                   placeholder="Qual ferramenta você precisa?" 
-                  className="bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 pl-12 pr-4 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] transition-all placeholder:text-[#7B8491]/40"
+                  className="bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 pl-12 pr-4 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] transition-all placeholder:text-[#7B8491]/60"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />

@@ -251,7 +251,7 @@ export default function App() {
                 Central de <span className="text-[#636E72]">Ferramentas</span>
               </h1>
               <p className="text-[#636E72] max-w-lg text-lg">
-                Seu atalho único para gerenciar todas as operações imobiliárias com agilidade e precisão.
+                Atalho único para todos os aplicativos e sistemas de gerenciamento da Morada Urbana.
               </p>
             </div>
 

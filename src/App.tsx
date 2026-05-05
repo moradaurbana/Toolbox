@@ -52,6 +52,12 @@ const iconMap: Record<string, any> = {
   Mail
 };
 
+const BRAND_COLOR = "#F47B0E"; // Official Amber
+const GRAPHITE = "#1E2732";
+const MIST = "#F5F7F9";
+const GRAY = "#7B8491";
+const GRAY_300 = "#D3D7DE";
+
 const CATEGORIES = ["Administração", "Vendas", "Atendimento", "Utilitários"] as const;
 
 export default function App() {
@@ -194,7 +200,7 @@ export default function App() {
           </p>
           <button 
             onClick={handleLogin}
-            className="w-full bg-[#2D3436] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#000000] transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
+            className="w-full bg-[#1E2732] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#000000] transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
           >
             <LogIn size={20} />
             Entrar com Google
@@ -205,31 +211,31 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] font-sans">
-      <div className="h-2 bg-[#2D3436]"></div>
+    <div className="min-h-screen bg-[#F5F7F9] text-[#1E2732] font-sans">
+      <div className="h-1 bg-[#F47B0E]"></div>
 
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-[#E0E0E0]">
+      <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-[#D3D7DE]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-[#2D3436] flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-lg bg-[#1E2732] flex items-center justify-center shadow-lg">
               <Building2 size={20} className="text-white" />
             </div>
-            <span className="font-bold text-[#2D3436] text-sm hidden md:block">MORADA URBANA</span>
+            <span className="font-bold text-[#1E2732] text-sm hidden md:block uppercase tracking-tight">MORADA URBANA</span>
           </div>
           
           {user && (
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 pr-4 border-r border-[#E0E0E0]">
+              <div className="flex items-center gap-3 pr-4 border-r border-[#D3D7DE]">
                 <div className="text-right hidden sm:block">
-                  <p className="text-[10px] font-black uppercase text-[#BDBDBD] mb-0.5">Operador</p>
-                  <p className="text-xs font-bold text-[#2D3436]">{user.displayName}</p>
+                  <p className="text-[10px] font-black uppercase text-[#7B8491] mb-0.5 opacity-50">Operador</p>
+                  <p className="text-xs font-bold text-[#1E2732]">{user.displayName}</p>
                 </div>
-                <img src={user.photoURL || ""} alt="User" className="w-9 h-9 rounded-full border border-[#E0E0E0]" />
+                <img src={user.photoURL || ""} alt="User" className="w-9 h-9 rounded-full border border-[#D3D7DE]" />
               </div>
               <button 
                 onClick={handleLogout}
-                className="p-2 text-[#636E72] hover:text-red-500 transition-colors"
+                className="p-2 text-[#7B8491] hover:text-[#F47B0E] transition-colors"
                 title="Sair"
               >
                 <LogOut size={20} />
@@ -251,21 +257,21 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-[#2D3436] mb-4">
-                Central de <span className="text-[#636E72]">Ferramentas</span>
+              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-[#1E2732] mb-4">
+                Central de <span className="text-[#F47B0E]">Ferramentas</span>
               </h1>
-              <p className="text-[#636E72] max-w-lg text-lg">
+              <p className="text-[#7B8491] max-w-lg text-lg">
                 Atalho único para todos os aplicativos e sistemas de gerenciamento da Morada Urbana.
               </p>
             </div>
 
-            <div className="flex flex-col gap-6 bg-white p-6 rounded-2xl shadow-sm border border-[#E0E0E0] w-full md:w-auto">
+            <div className="flex flex-col gap-6 bg-white p-6 rounded-2xl shadow-sm border border-[#D3D7DE] w-full md:w-auto">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#BDBDBD]" size={20} />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#7B8491]" size={20} />
                 <input 
                   type="text" 
                   placeholder="Qual ferramenta você precisa?" 
-                  className="bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 pl-12 pr-4 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] transition-all placeholder:text-[#BDBDBD]"
+                  className="bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 pl-12 pr-4 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] transition-all placeholder:text-[#7B8491]/40"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -273,7 +279,7 @@ export default function App() {
               <div className="flex flex-wrap gap-2">
                 <button 
                   onClick={() => setSelectedCategory(null)}
-                  className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${!selectedCategory ? 'bg-[#2D3436] border-[#2D3436] text-white' : 'bg-transparent border-[#E0E0E0] text-[#636E72] hover:bg-gray-50'}`}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${!selectedCategory ? 'bg-[#1E2732] border-[#1E2732] text-white shadow-sm' : 'bg-transparent border-[#D3D7DE] text-[#7B8491] hover:bg-gray-50'}`}
                 >
                   Todas
                 </button>
@@ -281,7 +287,7 @@ export default function App() {
                   <button 
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${selectedCategory === cat ? 'bg-[#2D3436] border-[#2D3436] text-white' : 'bg-transparent border-[#E0E0E0] text-[#636E72] hover:bg-gray-50'}`}
+                    className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${selectedCategory === cat ? 'bg-[#F47B0E] border-[#F47B0E] text-white shadow-sm' : 'bg-transparent border-[#D3D7DE] text-[#7B8491] hover:bg-gray-50'}`}
                   >
                     {cat}
                   </button>
@@ -291,11 +297,11 @@ export default function App() {
           </div>
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {loading ? (
             <div className="col-span-full flex flex-col items-center justify-center py-20 gap-4">
-              <Loader2 className="animate-spin text-[#2D3436]" size={48} />
-              <p className="font-bold text-[#BDBDBD] animate-pulse">Sincronizando sistemas...</p>
+              <Loader2 className="animate-spin text-[#1E2732]" size={40} />
+              <p className="font-bold text-[#D3D7DE] animate-pulse text-sm uppercase tracking-widest">Sincronizando sistemas...</p>
             </div>
           ) : (
             <>
@@ -308,63 +314,66 @@ export default function App() {
                     <motion.div
                       key={tool.id}
                       layout
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="group relative bg-white border border-[#E0E0E0] rounded-3xl p-8 hover:shadow-2xl hover:shadow-[#2D3436]/5 hover:-translate-y-1 transition-all flex flex-col h-full overflow-hidden"
+                      transition={{ duration: 0.3, delay: index * 0.03 }}
+                      className="group relative bg-white border border-[#D3D7DE] rounded-2xl p-6 hover:shadow-xl hover:shadow-[#1E2732]/5 hover:-translate-y-1 transition-all flex flex-col h-full overflow-hidden"
                     >
-                      <div className="flex items-center justify-between mb-8">
-                        <div className="w-14 h-14 rounded-2xl bg-[#F8F9FA] flex items-center justify-center text-[#2D3436] group-hover:bg-[#2D3436] group-hover:text-white transition-all shadow-inner">
-                          <IconComponent size={28} />
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-[#F5F7F9] flex items-center justify-center text-[#1E2732] group-hover:bg-[#1E2732] group-hover:text-white transition-all shadow-sm">
+                          <IconComponent size={24} />
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-1.5">
                           {isOwner && (
-                            <div className="flex bg-[#F8F9FA] p-1.5 rounded-lg border border-[#E0E0E0] opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="flex bg-[#F5F7F9]/50 backdrop-blur-sm p-1 rounded-lg border border-[#D3D7DE] md:opacity-0 group-hover:opacity-100 transition-opacity">
                               <button 
                                 onClick={() => openEdit(tool)} 
-                                className="p-2 text-[#636E72] hover:text-[#0984E3] transition-colors"
+                                className="p-1.5 text-[#7B8491] hover:text-[#F47B0E] transition-colors"
+                                title="Editar"
                               >
-                                <Edit size={18} />
+                                <Edit size={16} />
                               </button>
                               <button 
                                 onClick={() => tool.id && handleDelete(tool.id)} 
-                                className="p-2 text-[#636E72] hover:text-red-500 transition-colors"
+                                className="p-1.5 text-[#7B8491] hover:text-red-500 transition-colors"
+                                title="Excluir"
                               >
-                                <Trash2 size={18} />
+                                <Trash2 size={16} />
                               </button>
                             </div>
                           )}
-                          <div className="flex bg-[#F8F9FA] p-1.5 rounded-lg border border-[#E0E0E0]">
+                          <div className="flex bg-[#F5F7F9] p-1 rounded-lg border border-[#D3D7DE]">
                             <a 
                               href={tool.url} 
                               target="_blank" 
                               rel="noreferrer"
-                              className="p-2 text-[#636E72] hover:text-[#2D3436] transition-colors"
+                              className="p-1.5 text-[#7B8491] hover:text-[#1E2732] transition-colors"
                               title="Acessar agora"
                             >
-                              <ExternalLink size={20} />
+                              <ExternalLink size={18} />
                             </a>
                           </div>
                         </div>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-[#2D3436] mb-4 group-hover:text-[#0984E3] transition-colors tracking-tight">
+                      <h3 className="text-lg font-bold text-[#1E2732] mb-3 group-hover:text-[#F47B0E] transition-colors tracking-tight line-clamp-1">
                         {tool.name}
                       </h3>
-                      <p className="text-[#636E72] text-sm leading-relaxed mb-10 flex-grow text-balance">
+                      <p className="text-[#7B8491] text-[13px] leading-relaxed mb-6 flex-grow line-clamp-3">
                         {tool.description}
                       </p>
 
-                      <div className="flex items-center justify-between mt-auto pt-6 border-t border-[#F1F2F6]">
-                        <div className="flex flex-wrap gap-1.5">
-                          {tool.tags.map(tag => (
-                            <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-[#BDBDBD]">
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#D3D7DE]/30">
+                        <div className="flex flex-wrap gap-1">
+                          {tool.tags.slice(0, 2).map(tag => (
+                            <span key={tag} className="text-[9px] font-bold uppercase tracking-wider text-[#7B8491]">
                               #{tag}
                             </span>
                           ))}
+                          {tool.tags.length > 2 && <span className="text-[9px] text-[#7B8491]">...</span>}
                         </div>
-                        <span className="text-[10px] font-black uppercase text-[#2D3436]/40 bg-[#F1F2F6] px-2 py-1 rounded">
+                        <span className="text-[9px] font-black uppercase text-[#1E2732]/40 bg-[#F5F7F9] px-1.5 py-0.5 rounded tracking-tighter">
                           {tool.category}
                         </span>
                       </div>
@@ -375,19 +384,19 @@ export default function App() {
 
               <motion.div
                 layout
-                className="border-2 border-dashed border-[#E0E0E0] rounded-3xl p-8 flex flex-col items-center justify-center text-center gap-6 hover:border-[#2D3436] hover:bg-white transition-all cursor-pointer group min-h-[300px]"
+                className="border-2 border-dashed border-[#D3D7DE] rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 hover:border-[#F47B0E] hover:bg-white transition-all cursor-pointer group min-h-[220px]"
                 onClick={() => {
                   setEditingTool(null);
                   setFormData({ name: "", description: "", url: "", icon: "Building2", category: "Administração", tags: [] });
                   setIsModalOpen(true);
                 }}
               >
-                <div className="w-16 h-16 rounded-full border-2 border-[#E0E0E0] flex items-center justify-center text-[#BDBDBD] group-hover:border-[#2D3436] group-hover:text-[#2D3436] transition-all">
-                  <Plus size={32} />
+                <div className="w-12 h-12 rounded-full border-2 border-[#D3D7DE] flex items-center justify-center text-[#D3D7DE] group-hover:border-[#F47B0E] group-hover:text-[#F47B0E] transition-all">
+                  <Plus size={24} />
                 </div>
                 <div>
-                  <p className="font-bold text-[#2D3436]">Nova Ferramenta</p>
-                  <p className="text-sm text-[#636E72] mt-2 italic">Adicione um novo atalho para a equipe.</p>
+                  <p className="font-bold text-sm text-[#1E2732]">Nova Ferramenta</p>
+                  <p className="text-xs text-[#7B8491] mt-1 opacity-60">Adicione um atalho</p>
                 </div>
               </motion.div>
             </>
@@ -509,7 +518,7 @@ export default function App() {
                     </button>
                     <button 
                       type="submit"
-                      className="flex-1 py-4 px-6 rounded-xl bg-[#2D3436] text-white font-bold flex items-center justify-center gap-3 hover:bg-[#000000] transition-all shadow-lg"
+                      className="flex-1 py-4 px-6 rounded-xl bg-[#c5a059] text-white font-bold flex items-center justify-center gap-3 hover:bg-[#b08b49] transition-all shadow-lg"
                     >
                       <Check size={20} />
                       {editingTool ? "Salvar Alterações" : "Criar Atalho"}

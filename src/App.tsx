@@ -111,9 +111,13 @@ export default function App() {
   const handleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider();
+      // Sugestão: Use custom parameters se necessário, mas popup é o padrão
       await signInWithPopup(auth, provider);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login failed", error);
+      if (error.code === 'auth/unauthorized-domain') {
+        alert("Erro: Este domínio não está autorizado no Firebase. Verifique as configurações de 'Domínios Autorizados' no console do Firebase para o projeto gen-lang-client-0857461347.");
+      }
     }
   };
 

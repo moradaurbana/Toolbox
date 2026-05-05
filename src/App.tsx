@@ -187,20 +187,21 @@ export default function App() {
 
   if (!user && !loading) {
     return (
-      <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center justify-center p-6 font-sans">
+      <div className="min-h-screen bg-[#F5F7F9] flex flex-col items-center justify-center p-6 font-sans">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#E0E0E0] max-w-md w-full text-center"
+          className="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#D3D7DE] max-w-md w-full text-center"
         >
           <img src="https://i.postimg.cc/YCtSsSSW/logo2024.png" alt="Logo" className="h-24 mx-auto mb-8 object-contain" referrerPolicy="no-referrer" />
-          <h1 className="text-3xl font-black text-[#2D3436] mb-4 tracking-tight">Portal de Sistemas</h1>
-          <p className="text-[#636E72] mb-10 leading-relaxed">
-            Acesse com seu e-mail corporativo para gerenciar e visualizar as ferramentas da Morada Urbana.
+          <h2 className="text-sm font-black text-[#F47B0E] uppercase tracking-[0.3em] mb-2">Morada Urbana</h2>
+          <h1 className="text-3xl font-bold text-[#1E2732] mb-4 tracking-tight">Portal de Sistemas</h1>
+          <p className="text-[#7B8491] mb-10 leading-relaxed text-sm">
+            Acesse com seu e-mail corporativo para gerenciar e visualizar as ferramentas da equipe.
           </p>
           <button 
             onClick={handleLogin}
-            className="w-full bg-[#1E2732] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#000000] transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
+            className="w-full bg-[#1E2732] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#F47B0E] transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
           >
             <LogIn size={20} />
             Entrar com Google
@@ -403,12 +404,12 @@ export default function App() {
           )}
         </section>
 
-        <footer className="mt-32 pt-10 border-t border-[#E0E0E0] flex flex-col md:flex-row justify-between items-center gap-6 text-[#BDBDBD] text-xs font-bold uppercase tracking-[0.2em]">
+        <footer className="mt-32 pt-10 border-t border-[#D3D7DE] flex flex-col md:flex-row justify-between items-center gap-6 text-[#7B8491] text-[10px] font-bold uppercase tracking-[0.2em]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            <span className="w-2 h-2 rounded-full bg-[#F47B0E]"></span>
             Sistemas Ativos // 2026
           </div>
-          <p>Morada Urbana - Inteligência Imobiliária</p>
+          <p className="opacity-60">Morada Urbana - Inteligência Imobiliária</p>
         </footer>
       </main>
 
@@ -420,21 +421,21 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-[#2D3436]/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#1E2732]/80 backdrop-blur-sm"
               onClick={() => setIsModalOpen(false)}
             />
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl overflow-hidden"
+              className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-xl overflow-hidden border border-[#D3D7DE]"
             >
               <div className="p-8 md:p-12">
                 <div className="flex justify-between items-center mb-10">
-                  <h2 className="text-3xl font-black text-[#2D3436] tracking-tight">
+                  <h2 className="text-2xl font-bold text-[#1E2732] tracking-tight">
                     {editingTool ? "Editar Ferramenta" : "Nova Ferramenta"}
                   </h2>
-                  <button onClick={() => setIsModalOpen(false)} className="p-2 hover:bg-[#F8F9FA] rounded-full transition-colors">
+                  <button onClick={() => setIsModalOpen(false)} className="p-2 hover:bg-[#F5F7F9] rounded-full transition-colors text-[#7B8491]">
                     <X size={24} />
                   </button>
                 </div>
@@ -442,21 +443,21 @@ export default function App() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">Nome</label>
+                      <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">Nome</label>
                       <input 
                         required
                         type="text" 
                         value={formData.name}
                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none" 
+                        className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none text-[#1E2732]" 
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">Categoria</label>
+                      <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">Categoria</label>
                       <select 
                         value={formData.category}
                         onChange={e => setFormData({ ...formData, category: e.target.value as any })}
-                        className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none"
+                        className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none text-[#1E2732]"
                       >
                         {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                       </select>
@@ -464,46 +465,46 @@ export default function App() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">URL de Acesso</label>
+                    <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">URL de Acesso</label>
                     <input 
                       required
                       type="url" 
                       value={formData.url}
                       onChange={e => setFormData({ ...formData, url: e.target.value })}
-                      className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none" 
+                      className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none text-[#1E2732]" 
                       placeholder="https://..."
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">Descrição Curta</label>
+                    <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">Descrição Curta</label>
                     <textarea 
                       required
                       rows={2}
                       value={formData.description}
                       onChange={e => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none resize-none"
+                      className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none resize-none text-[#1E2732]"
                     ></textarea>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">Ícone</label>
+                      <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">Ícone</label>
                       <select 
                         value={formData.icon}
                         onChange={e => setFormData({ ...formData, icon: e.target.value })}
-                        className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none"
+                        className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none text-[#1E2732]"
                       >
                         {Object.keys(iconMap).map(i => <option key={i} value={i}>{i}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase text-[#BDBDBD] tracking-widest pl-1">Tags (Separadas por vírgula)</label>
+                      <label className="text-[10px] font-black uppercase text-[#7B8491] tracking-widest pl-1">Tags (Separadas por vírgula)</label>
                       <input 
                         type="text" 
                         value={formData.tags?.join(", ")}
                         onChange={e => setFormData({ ...formData, tags: e.target.value.split(",").map(t => t.trim()).filter(t => t) })}
-                        className="w-full bg-[#F8F9FA] border border-[#E0E0E0] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#2D3436]/10 focus:border-[#2D3436] outline-none" 
+                        className="w-full bg-[#F5F7F9] border border-[#D3D7DE] rounded-xl py-3 px-4 focus:ring-2 focus:ring-[#F47B0E]/10 focus:border-[#F47B0E] outline-none text-[#1E2732]" 
                       />
                     </div>
                   </div>
@@ -512,13 +513,13 @@ export default function App() {
                     <button 
                       type="button" 
                       onClick={() => setIsModalOpen(false)}
-                      className="flex-1 py-4 px-6 rounded-xl border border-[#E0E0E0] font-bold text-[#636E72] hover:bg-[#F8F9FA] transition-all"
+                      className="flex-1 py-4 px-6 rounded-xl border border-[#D3D7DE] font-bold text-[#7B8491] hover:bg-[#F5F7F9] transition-all"
                     >
                       Cancelar
                     </button>
                     <button 
                       type="submit"
-                      className="flex-1 py-4 px-6 rounded-xl bg-[#c5a059] text-white font-bold flex items-center justify-center gap-3 hover:bg-[#b08b49] transition-all shadow-lg"
+                      className="flex-1 py-4 px-6 rounded-xl bg-[#F47B0E] text-white font-bold flex items-center justify-center gap-3 hover:bg-[#E67200] transition-all shadow-lg shadow-[#F47B0E]/20"
                     >
                       <Check size={20} />
                       {editingTool ? "Salvar Alterações" : "Criar Atalho"}

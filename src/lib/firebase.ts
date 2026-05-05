@@ -11,7 +11,11 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const databaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID;
+if (!firebaseConfig.apiKey) {
+  console.error("ERRO: Firebase API Key não encontrada! Se você está no GitHub Pages, certifique-se de configurar as 'Repository Secrets' no seu repositório GitHub.");
+}
+
+const databaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID || "(default)";
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, databaseId);

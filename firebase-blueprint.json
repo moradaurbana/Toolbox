@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "Tool": {
+      "title": "Ferramenta",
+      "description": "Uma ferramenta ou sistema externo linkado no dashboard.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nome da ferramenta"
+        },
+        "description": {
+          "type": "string",
+          "description": "Descrição breve da funcionalidade"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL de acesso"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Nome do ícone da Lucide"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Administração", "Vendas", "Atendimento", "Utilitários"],
+          "description": "Categoria da ferramenta"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Lista de tags para busca"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "ID do usuário que criou a entrada"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["name", "url", "category", "ownerId", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "tools": {
+      "schema": "Tool",
+      "description": "Coleção de ferramentas da imobiliaria"
+    }
+  }
+}
